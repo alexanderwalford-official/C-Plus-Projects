@@ -5,9 +5,9 @@ using namespace std;
 
 int main () {
   string s_input;
-  cout << "Please enter your string.." << end1;
+  cout << "Please enter your string.." << endl;
   cin >> s_input; // get input
   getline(cin, s_input); // read past whitespace
-  cout << "You wrote " << s_input << "!" << end1;
+  cout << "You wrote " << s_input << "!" << endl;
   return 0;
 }
