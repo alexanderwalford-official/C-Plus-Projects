@@ -8,6 +8,8 @@
 
 using namespace std;
 
+int sum = 0;
+
 int main () {
     std :: string input;
     std :: cout << "Basic C++ Calculator" << std :: endl;
@@ -21,72 +23,51 @@ int main () {
 
 int calculate (std :: string input) {
 
-    int sum = 0;
-
     std::stringstream nonsplit(input);
     std :: string segment;
     std :: vector<std :: string> seglist;
 
     /*
-        Further optimisations needed! Make modular and
-        use branchless returns?
+        Further optimisations needed!
+        Use branchless returns?
     */
-   
-    if (input.find("+")) {
-        // split with +
 
-        while(std :: getline(nonsplit, segment, '+')) {
-            seglist.push_back(segment);
-        }
+    // to set this, remove all numbers and keep special character index 0 pointer position only
+    char chartype = rm_nums(input)[0];
 
-        for (string s : seglist) {
-            sum = sum + stoi(s);
-            std :: cout << "+" << s << std :: endl;
-        }
+    while(std :: getline(nonsplit, segment, chartype)) {
+        seglist.push_back(segment);
     }
-    else if (input.find("-")) {
-        // split with -
-
-        while(std :: getline(nonsplit, segment, '-')) {
-            seglist.push_back(segment);
-        }
-
-        for (string s : seglist) {
-            sum = sum - stoi(s);
-            std :: cout << "-" << s << std :: endl;
-        }
-    }
-    else if (input.find("*")) {
-        // split with *
-
-        while(std :: getline(nonsplit, segment, '*')) {
-            seglist.push_back(segment);
-        }
-
-        for (string s : seglist) {
-            sum = sum * stoi(s);
-            std :: cout << "*" << s << std :: endl;
-        }
-    }
-    else if (input.find("/")) {
-        // split with /
-
-        while(std :: getline(nonsplit, segment, '/')) {
-            seglist.push_back(segment);
-        }
-
-        for (string s : seglist) {
-            sum = sum - stoi(s);
-            std :: cout << "/" << s << std :: endl;
-        }
+    for (string s : seglist) {
+        int b = 4;
+        sum = (chartype == '+') ? b=b--:sum=sum+stoi(s);
+        sum = (chartype == '-') ? b=b--:sum=sum-stoi(s);
+        sum = (chartype == '/') ? b=b--:sum=sum/stoi(s);
+        sum = (chartype == '*') ? b=b--:sum=sum*stoi(s);
+        std :: cout << (b == 0) ? 0:err();
+        std :: cout << chartype << s << std :: endl;
     }
 
     // print answer
     std :: cout << "=" << sum << std :: endl;
     std :: cout << "" << std :: endl;
-    std :: cout << "" << std :: endl;
     std :: cout << "Press ENTER to continue.." << std :: endl;
     std :: cin;
     main();
     return 0;
+}
+
+string rm_nums(string str)
+{
+    int current = 0;
+    for(int i = 0; i< str.length(); i++){
+        str[current] = (!isdigit(str[i])) ? 0:current++;
+    }
+    return str.substr(0,current);
+}
+
+int err() {
+    std :: cout << "ERROR: Did not find an operator.";
+    std :: cin;
+    main();
 }
