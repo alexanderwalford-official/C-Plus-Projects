@@ -52,4 +52,5 @@ int err() {
     std :: cout << "ERROR: Did not find an operator.";
     std :: cin;
     main();
+    return 0;
 }
