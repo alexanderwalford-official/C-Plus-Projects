@@ -27,11 +27,6 @@ int calculate (std :: string input) {
     std :: string segment;
     std :: vector<std :: string> seglist;
 
-    /*
-        Further optimisations needed!
-        Use branchless returns?
-    */
-
     // to set this, remove all numbers and keep special character index 0 pointer position only
     char chartype = rm_nums(input)[0];
 
@@ -47,8 +42,7 @@ int calculate (std :: string input) {
         std :: cout << (b == 0) ? 0:err();
         std :: cout << chartype << s << std :: endl;
     }
-
-    // print answer
+    
     std :: cout << "=" << sum << std :: endl;
     std :: cout << "" << std :: endl;
     std :: cout << "Press ENTER to continue.." << std :: endl;
