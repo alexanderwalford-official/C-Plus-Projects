@@ -1,5 +1,8 @@
 #include <iostream>
 #include <stdlib.h> // system commands, used here for clearing the console
+#include <string>
+
+using namespace std;
 
 int main () {
     

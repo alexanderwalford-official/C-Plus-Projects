@@ -5,8 +5,8 @@
 
 int main () {
 
-    std :: bool a = true;
-    std :: bool b = false;
+    bool a = true;
+    bool b = false;
 
     /*
         Typically, developers do not consider the performance impact of using if
@@ -30,21 +30,25 @@ int main () {
         old fashioned arithmatic!
     */
 
-    // (untested)
+    // print 1 if a!=b, otherwise print 0
+    std :: cout << (a != b) ? 1 : 0;
 
-    b!a = std :: cout << "Variable a (" << a << ") and variable b (" << b << ") do not match!" << std :: endl; // b does not equal a
-    !a = std :: cout << "Variable a is false!" << std :: endl; // a is false
-    a=b = std :: cout << "Variable a (" << a << ") and variable b (" << b << ") match!" << std :: endl; // a equals b
+    // print 1 if a is false, otherwise print 0
+    std :: cout << (!a) ? 1 : 0;
+
+    // print 1 if a==b and a is false, otherwise print 0
+    std :: cout << (a == b) ? 1 : (!a) ? 1 : 0;
 
 
     /*
         Let's go with another example!
     */
 
-    std :: bool f = true;
-    std :: int t;
-    std :: int _1;
-    std :: int _2;
+    bool f = true;
+    int t;
+    int _1;
+    int _2;
+    int a = 2;
 
     // branched
     if (f == true) t = a*10;
@@ -54,7 +58,7 @@ int main () {
     // branchless
     _1 = a*10;
     _2 = a*20;
-    std :: cout << f ? _1:_2 << std :: endl;
+    std :: cout << f ? _1:_2;
 
 
     return 0;
