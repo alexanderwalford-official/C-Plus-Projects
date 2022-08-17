@@ -49,6 +49,6 @@ void calculate (std :: string input) {
     std :: cout << "=" << sum << std :: endl;
     std :: cout << "" << std :: endl;
     std :: cout << "Press ENTER to continue.." << std :: endl;
-    std :: cin;
+    std :: cin.ignore();
     main();
 }
