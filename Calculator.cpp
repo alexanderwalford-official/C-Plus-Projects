@@ -15,7 +15,20 @@ int main () {
     calculate(input);
     return 0;
 }
-int calculate (std :: string input) {
+string rm_nums(string str)
+{
+    int current = 0;
+    for(int i = 0; i< str.length(); i++){
+        str[current] = (!isdigit(str[i])) ? 0:current++;
+    }
+    return str.substr(0,current);
+}
+void err() {
+    std :: cout << "ERROR: Did not find an operator.";
+    std :: cin;
+    main();
+}
+void calculate (std :: string input) {
     std::stringstream nonsplit(input);
     std :: string segment;
     std :: vector<std :: string> seglist;
@@ -38,19 +51,4 @@ int calculate (std :: string input) {
     std :: cout << "Press ENTER to continue.." << std :: endl;
     std :: cin;
     main();
-    return 0;
-}
-string rm_nums(string str)
-{
-    int current = 0;
-    for(int i = 0; i< str.length(); i++){
-        str[current] = (!isdigit(str[i])) ? 0:current++;
-    }
-    return str.substr(0,current);
-}
-int err() {
-    std :: cout << "ERROR: Did not find an operator.";
-    std :: cin;
-    main();
-    return 0;
 }
