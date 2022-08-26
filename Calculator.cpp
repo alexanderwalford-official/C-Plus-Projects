@@ -4,7 +4,6 @@
 #include <sstream>
 #include <string>
 using namespace std;
-int sum = 0;
 int main () {
     std :: string input;
     std :: cout << "Basic C++ Calculator by Alexander Walford 2022" << std :: endl;
@@ -24,7 +23,7 @@ void err() {
     std :: cin.ignore();
     main();
 }
-void calculate (std :: string input) {
+void calculate (std :: string input, int sum = 0) {
     std :: stringstream nonsplit(input);
     std :: string segment;
     std :: vector <std :: string> seglist;
