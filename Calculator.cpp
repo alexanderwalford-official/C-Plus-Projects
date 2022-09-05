@@ -6,8 +6,7 @@
 using namespace std;
 int main () {
     std :: string input;
-    std :: cout << "Basic C++ Calculator by Alexander Walford 2022" << std :: endl;
-    std :: cout << "Please enter your equation:" << std :: endl;
+    std :: cout << "Basic C++ Calculator by Alexander Walford 2022 \n\n Please enter your equation:" << std :: endl;
     std :: cin >> input;
     calculate(input);
     return 0;
